@@ -1,0 +1,20 @@
+<div data-navigation="container" class="i-top-header">
+  <div class="wrapper top-section">
+    <div class="hleft"><a class="logo selfLogo" routerLink="/home"><img alt="logo"
+          src="../assets/images/logo.png"></a> 
+    </div>
+    <div class="mnav_hb hide">
+      <div class="hamburger"><span class="line"></span><span class="line"></span><span class="line"></span></div>
+    </div>
+    <nav class="hright dnav">
+      <ul>
+        <li routerLinkActive="active"><a routerLink="/home">Home</a></li>
+        <li *ngIf="isLoggedIn" routerLinkActive="active"><a routerLink="/dashboard">My account</a></li>
+        <li *ngIf="!isLoggedIn" routerLinkActive="active"><a (click)="login()">Login</a></li>
+        <li *ngIf="isLoggedIn" routerLinkActive="active"><a (click)="logout()">Logout</a></li>
+        <li *ngIf="isLoggedIn" routerLinkActive="active"><a routerLink="/new-auction">Add auction</a></li>
+      </ul>
+    </nav>
+  </div>
+</div> 
+<router-outlet></router-outlet> 

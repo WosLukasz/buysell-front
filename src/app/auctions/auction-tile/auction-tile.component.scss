@@ -1,0 +1,7 @@
+@import '../../../styles/styles.scss'; 
+
+.auction-tile {
+    border-bottom: thin solid $gray;
+    margin: $standard-padding-x2;
+    padding: $standard-padding-x2;
+}

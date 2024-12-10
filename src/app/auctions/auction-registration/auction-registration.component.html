@@ -1,0 +1,17 @@
+<!-- <app-header></app-header> -->
+
+<h1>{{'buySell.auctionRegistration.addAuction' | translate}}</h1>
+
+<form [formGroup]="auctionForm"> 
+
+    <auction-edit-general-data></auction-edit-general-data>
+
+    <app-auction-edit-media (imagesUpdated)="imagesUpdated($event)"></app-auction-edit-media>
+
+    <app-auction-edit-seller-data></app-auction-edit-seller-data>
+
+    <button cButton (click)="cancel()">Cancel</button>
+
+    <button cButton (click)="save()">Save</button>
+
+</form>

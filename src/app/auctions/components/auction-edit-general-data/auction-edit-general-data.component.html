@@ -1,0 +1,24 @@
+<app-card [title]="'buySell.auctionRegistration.generalData'">
+    <app-text-input 
+        [formControl]="title" 
+        [label]="'common.title'">
+    </app-text-input>
+
+    <app-amount-input 
+        [formControl]="price" 
+        [label]="'common.price'">
+    </app-amount-input>
+
+
+    <app-text-input 
+        [formControl]="category" 
+        [label]="'common.category'">
+    </app-text-input>
+
+
+    <app-text-area-input
+        [formControl]="description" 
+        [label]="'common.description'">
+    </app-text-area-input>
+</app-card>
+

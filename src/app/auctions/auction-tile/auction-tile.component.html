@@ -1,0 +1,16 @@
+<div class="row auction-tile" (click)="openAuctionView()">
+    <div class="col-md-3">
+        <!-- <img class="image" src="./resources/img/new.png"/> -->
+    </div>
+    <div class="col-md-6">
+        <div class="h3">
+            {{auction?.title}}
+        </div>
+        <div>
+            {{auction?.seller?.location}}
+        </div>
+    </div>
+    <div class="col-md-3">
+            {{auction?.price | appCurrency}} 
+    </div>
+</div>

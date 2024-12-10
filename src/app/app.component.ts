@@ -1,13 +1,17 @@
 import { Component } from '@angular/core';
-import { RouterOutlet } from '@angular/router';
+import {TranslateService} from "@ngx-translate/core"; 
 
 @Component({
-  selector: 'app-root',
-  standalone: true,
-  imports: [RouterOutlet],
+  selector: 'app-root', 
   templateUrl: './app.component.html',
-  styleUrl: './app.component.scss'
+  styleUrls: ['./app.component.scss']
 })
 export class AppComponent {
-  title = 'buysell-font-end';
+  title = 'bank-app-ui';
+
+  constructor(private translate: TranslateService) {
+    this.translate.addLangs(['pl', 'en']);
+    this.translate.setDefaultLang('en');
+    this.translate.use(this.translate.getBrowserLang() || "en");
+  }
 }

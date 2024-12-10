@@ -1,0 +1,13 @@
+<app-card [title]="'buySell.auctionRegistration.images'">
+
+    <div class="row">
+        <div class="col-md-4" *ngFor="let image of imagesSpaces; trackBy:imageByOrder">
+            <app-image-upload [context]="context" 
+                              (imageUploaded)="onImageUploaded($event, image)"></app-image-upload>
+        </div>
+    </div>
+
+    
+</app-card>
+
+
