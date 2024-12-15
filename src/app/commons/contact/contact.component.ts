@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
-import { Contact } from "src/app/model/contact.model";
+import { Contact } from "app/model/contact.model";
 import { NgForm } from '@angular/forms';
-import { DashboardService } from 'src/app/services/dashboard/dashboard.service';
+import { DashboardService } from 'app/services/dashboard/dashboard.service';
 
 
 @Component({

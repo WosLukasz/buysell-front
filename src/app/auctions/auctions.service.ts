@@ -2,7 +2,7 @@ import { Injectable } from '@angular/core';
 import { HttpClient, HttpRequest, HttpEvent } from '@angular/common/http';
 import { Observable } from 'rxjs';
 import { Attachment, Auction, AuctionCreationRequest, ContactInformation, AttachmentSaveRequest } from '../model/auctions.model';
-import { environment } from 'src/environments/environment';
+import { environment } from 'environments/environment';
 import { AppConstants } from '../constants/app.constants';
 import { Router } from '@angular/router';
 

@@ -1,7 +1,7 @@
 import { Injectable } from '@angular/core';
 import { KeycloakService } from 'keycloak-angular';
 import { from, Observable, of } from 'rxjs';
-import { AuthProfile } from 'src/app/model/user.model';
+import { AuthProfile } from 'app/model/user.model';
 import { environment } from '../../../environments/environment';
 
 @Injectable({

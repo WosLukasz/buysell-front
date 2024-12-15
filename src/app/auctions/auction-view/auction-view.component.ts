@@ -1,6 +1,6 @@
 import { Component, Input, OnInit } from '@angular/core';
 import { AuctionsService } from '../auctions.service';
-import { Auction } from 'src/app/model/auctions.model';
+import { Auction } from 'app/model/auctions.model';
 import { ActivatedRoute, Router } from '@angular/router';
 
 @Component({

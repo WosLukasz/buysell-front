@@ -1,6 +1,6 @@
 import { DecimalPipe } from '@angular/common';
 import { Pipe, PipeTransform } from '@angular/core';
-import { Amount } from 'src/app/model/auctions.model';
+import { Amount } from 'app/model/auctions.model';
 
 @Pipe({
   name: 'appCurrency'

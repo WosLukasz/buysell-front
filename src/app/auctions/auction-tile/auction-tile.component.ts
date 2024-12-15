@@ -1,6 +1,6 @@
 import { Component, Input, OnInit } from '@angular/core';
-import { Auction } from 'src/app/model/auctions.model';
-import { FilesClientService } from 'src/app/services/minio/files-client.service';
+import { Auction } from 'app/model/auctions.model';
+import { FilesClientService } from 'app/services/minio/files-client.service';
 import { AuctionsService } from '../auctions.service';
 
 @Component({
@@ -12,11 +12,13 @@ export class AuctionTileComponent implements OnInit {
 
   @Input() auction: Auction;
 
+  imageUrl: string | undefined;
+
   constructor(private auctionService: AuctionsService, private filesClientService: FilesClientService) {}
 
   ngOnInit(): void {
     console.log('auction', this.auction);  
-    this.getMainImage();
+    this.imageUrl = FilesClientService.getMainImageUrl(this.auction.attachments);
   }
 
   openAuctionView(): void {
@@ -24,17 +26,6 @@ export class AuctionTileComponent implements OnInit {
   }
 
 
-  getMainImage() {
-    const attachment = this.auction.attachments.find((item) => item.main === true);
-    if(!attachment) {
-      return null;
-    }
 
-    return this.filesClientService.fetchFile(attachment).subscribe((imageContent) => {
-      console.log('imageContent', imageContent); 
-    })
-
-
-  }
 
 }

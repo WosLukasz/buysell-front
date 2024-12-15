@@ -1,6 +1,7 @@
 import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
-import { Attachment, AttachmentSaveRequest } from 'src/app/model/auctions.model';
-import { AttachmentsService } from 'src/app/services/common/attachments.service';
+import { Attachment, AttachmentSaveRequest } from 'app/model/auctions.model';
+import { AttachmentsService } from 'app/services/common/attachments.service';
+import { FilesClientService } from 'app/services/minio/files-client.service';
 
 @Component({
   selector: 'app-image-upload',
@@ -9,7 +10,7 @@ import { AttachmentsService } from 'src/app/services/common/attachments.service'
 })
 export class ImageUploadComponent implements OnInit {
 
-  @Input() initialFile: Attachment;
+  @Input() attachment?: Attachment;
 
   @Input() context: string;
 
@@ -19,58 +20,60 @@ export class ImageUploadComponent implements OnInit {
 
   currentFile?: File;
 
-  preview: any;
+  previewUrl: string | undefined;
 
   constructor(private attachmentsService: AttachmentsService) {}
 
   ngOnInit(): void {
-    console.log('ImageUploadComponent.ngOnInit');
-    if(this.initialFile?.id) {
+    if(this.attachment?.path) {
       console.log('ImageUploadComponent.ngOnInit!!!!');
-      this.attachmentsService.getAttachmentContent(this.initialFile).subscribe((attachmentWithContent) => {
-        this.currentFile = attachmentWithContent.content;
-        this.generatePreview();
-      })
+      this.generatePreviewUrl();
     }
   }
 
   selectFile(event: any): void {
-    this.preview = '';
+    this.previewUrl = '';
     this.selectedFiles = event.target.files;
 
-    if (this.selectedFiles) {
-      const file: File | null = this.selectedFiles.item(0);
-      if (file) {
-        this.preview = '';
-        this.currentFile = file;
-        this.generatePreview();
-        
-      }
-
-      const request = {
-        context: this.context,
-        content: file
-      } as AttachmentSaveRequest;
-
-      this.attachmentsService.addAttachment(request).subscribe((savedFile) => {
-        this.imageUploaded.emit(savedFile);
-      })
+    if (!this.selectedFiles) {
+      return;
     }
+
+    const file: File | null = this.selectedFiles.item(0);
+    if (file) {
+      this.currentFile = file;
+    }
+
+    const request = {
+      context: this.context,
+      content: file
+    } as AttachmentSaveRequest;
+
+    this.attachmentsService.addAttachment(request).subscribe((savedAttachment) => {
+      this.attachment = savedAttachment;
+      this.generatePreviewUrl();
+      this.imageUploaded.emit(savedAttachment);
+      })
   }
 
   remove(): void {
+    delete this.attachment;
     delete this.selectedFiles;
     delete this.currentFile;
     this.imageUploaded.emit(this.currentFile);
   }
 
-  private generatePreview(): void {
-    const reader = new FileReader();
-    reader.onload = (e: any) => {
-      console.log(e.target.result);
-      this.preview = e.target.result;
-    };
-
-    reader.readAsDataURL(this.currentFile as Blob);
+  private generatePreviewUrl(): void {
+    this.previewUrl = FilesClientService.prepareUrl(this.attachment);
   }
+
+  // private generatePreview(): void {
+  //   const reader = new FileReader();
+  //   reader.onload = (e: any) => {
+  //     console.log(e.target.result);
+  //     this.preview = e.target.result;
+  //   };
+
+  //   reader.readAsDataURL(this.currentFile as Blob);
+  // }
 }

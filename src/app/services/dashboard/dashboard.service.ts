@@ -22,7 +22,7 @@ export class DashboardService {
   }
 
   saveMessage(contact : Contact){
-    var contacts = [];
+    var contacts: Contact[] = [];
     contacts.push(contact);
     return this.http.post(environment.serviceUrl + AppConstants.CONTACT_API_URL,contacts,{ observe: 'response'});
   }

@@ -15,6 +15,7 @@ import { AuctionTileComponent } from './auction-tile/auction-tile.component';
 import { AuctionViewComponent } from './auction-view/auction-view.component';
 import { AuctionEditComponent } from './auction-edit/auction-edit.component';
 import { AuctionsSearchFiltersComponent } from './auctions-search-filters/auctions-search-filters.component';
+import { AppRoutingModule } from '../app-routing.module';
 
 @NgModule({
   declarations: [
@@ -37,6 +38,7 @@ import { AuctionsSearchFiltersComponent } from './auctions-search-filters/auctio
     FormsModule,
     ReactiveFormsModule,
     TranslateModule,
+    AppRoutingModule,
   ],
   exports: [AuctionsSearchComponent]
 })

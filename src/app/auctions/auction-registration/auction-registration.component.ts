@@ -1,7 +1,7 @@
 import { Component } from '@angular/core';
 import { FormGroup, FormBuilder} from '@angular/forms';
 import { AuctionsService } from '../auctions.service';
-import { Attachment, AttachmentSaveRequest } from 'src/app/model/auctions.model';
+import { Attachment } from 'app/model/auctions.model';
 
 
 @Component({

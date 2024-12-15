@@ -9,14 +9,19 @@ import { KeycloakInitializerService } from './services/auth/keycloak-initializer
 import { AuctionsModule } from './auctions/auctions.module';
 import { CommonsModule } from './commons/commons.module';
 import {TranslateLoader, TranslateModule} from '@ngx-translate/core';
-import {TranslateHttpLoader} from '@ngx-translate/http-loader';
+// import {TranslateHttpLoader} from '@ngx-translate/http-loader';
 import { StaticTranslationLoader } from './static-translations-loader';
 import { ViewsModule } from './views/views.module';
+import { NgbModule } from '@ng-bootstrap/ng-bootstrap'; // https://ng-bootstrap.github.io/#/components/accordion/overview
 
-@NgModule({ declarations: [
+@NgModule({ 
+    declarations: [
         AppComponent
     ],
-    bootstrap: [AppComponent], imports: [BrowserModule,
+    bootstrap: [AppComponent], 
+    imports: [
+        BrowserModule,
+        NgbModule,
         AppRoutingModule,
         FormsModule,
         KeycloakAngularModule,
@@ -28,7 +33,9 @@ import { ViewsModule } from './views/views.module';
                 provide: TranslateLoader,
                 useClass: StaticTranslationLoader
             }
-        })], providers: [
+        })
+        ], 
+        providers: [
         {
             provide: APP_INITIALIZER,
             useFactory: (keycloakService: KeycloakService, keycloakInitializerService: KeycloakInitializerService) => () => keycloakInitializerService.initialize(keycloakService),
@@ -40,7 +47,8 @@ import { ViewsModule } from './views/views.module';
             cookieName: 'XSRF-TOKEN',
             headerName: 'X-XSRF-TOKEN',
         }))
-    ] })
+    ] 
+})
 export class AppModule {
 
 }

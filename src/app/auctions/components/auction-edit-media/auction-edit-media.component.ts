@@ -1,5 +1,5 @@
 import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
-import { Attachment, AttachmentSaveRequest } from 'src/app/model/auctions.model';
+import { Attachment, AttachmentSaveRequest } from 'app/model/auctions.model';
 
 export const IMAGES_AMOUNT = 6;
 
