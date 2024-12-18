@@ -4,4 +4,14 @@
     border-bottom: thin solid $gray;
     margin: $standard-padding-x2;
     padding: $standard-padding-x2;
+    height: 200px;
+}
+
+.carousel { 
+    height: 100%; 
+}
+
+.carousel-image {  
+    height: 100%; 
+    width: 100%;
 }

@@ -16,6 +16,7 @@ import { AuctionViewComponent } from './auction-view/auction-view.component';
 import { AuctionEditComponent } from './auction-edit/auction-edit.component';
 import { AuctionsSearchFiltersComponent } from './auctions-search-filters/auctions-search-filters.component';
 import { AppRoutingModule } from '../app-routing.module';
+import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 
 @NgModule({
   declarations: [
@@ -34,6 +35,7 @@ import { AppRoutingModule } from '../app-routing.module';
   imports: [
     CommonModule,
     CommonsModule,
+    NgbModule,
     BrowserModule,
     FormsModule,
     ReactiveFormsModule,

@@ -26,7 +26,6 @@ export class ImageUploadComponent implements OnInit {
 
   ngOnInit(): void {
     if(this.attachment?.path) {
-      console.log('ImageUploadComponent.ngOnInit!!!!');
       this.generatePreviewUrl();
     }
   }
@@ -60,20 +59,10 @@ export class ImageUploadComponent implements OnInit {
     delete this.attachment;
     delete this.selectedFiles;
     delete this.currentFile;
-    this.imageUploaded.emit(this.currentFile);
+    this.imageUploaded.emit(this.attachment);
   }
 
   private generatePreviewUrl(): void {
     this.previewUrl = FilesClientService.prepareUrl(this.attachment);
   }
-
-  // private generatePreview(): void {
-  //   const reader = new FileReader();
-  //   reader.onload = (e: any) => {
-  //     console.log(e.target.result);
-  //     this.preview = e.target.result;
-  //   };
-
-  //   reader.readAsDataURL(this.currentFile as Blob);
-  // }
 }

@@ -1,5 +1,5 @@
 import { Component, Input, OnInit } from '@angular/core';
-import { Auction } from 'app/model/auctions.model';
+import { Attachment, Auction } from 'app/model/auctions.model';
 import { FilesClientService } from 'app/services/minio/files-client.service';
 import { AuctionsService } from '../auctions.service';
 
@@ -14,18 +14,24 @@ export class AuctionTileComponent implements OnInit {
 
   imageUrl: string | undefined;
 
+  attachmentsToDisplay: Attachment[];
+
   constructor(private auctionService: AuctionsService, private filesClientService: FilesClientService) {}
 
   ngOnInit(): void {
-    console.log('auction', this.auction);  
     this.imageUrl = FilesClientService.getMainImageUrl(this.auction.attachments);
+    this.attachmentsToDisplay = this.auction?.attachments
+                                  .filter((attachment) => !!attachment.id && !attachment.main)
+                                  .sort((a, b) => a.order - b.order);
+
   }
 
   openAuctionView(): void {
     this.auctionService.openAuctionView(this.auction.signature);
   }
 
-
-
+  prepareAttachmentImageUrl(attachment: Attachment) : string | undefined {
+    return FilesClientService.prepareUrl(attachment);
+  }
 
 }
