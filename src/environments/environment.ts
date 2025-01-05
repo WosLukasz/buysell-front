@@ -7,6 +7,4 @@ export const environment = {
   authRedirectUrl: 'http://localhost:4200/home'
 };
 
-// olx
-// subindie@blabel.online
-// Test1243!@$#
+// https://fontawesome.com/v4/icons/

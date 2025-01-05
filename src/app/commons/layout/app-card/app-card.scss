@@ -4,11 +4,8 @@
 .app-card { 
     background-color: white; 
     padding: $standard-padding-x2;
-    margin: $standard-padding-x2;
+    margin-top: $standard-padding-x2;
+    margin-bottom: $standard-padding-x2;
     border-radius: $standard-rounding;
-
-    // &.__title {
-        
-    // }
 }  
     

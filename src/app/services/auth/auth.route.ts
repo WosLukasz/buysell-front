@@ -39,11 +39,9 @@ export class AuthKeyClockGuard extends KeycloakAuthGuard {
 
     // Allow the user to proceed if no additional roles are required to access the route. 
     if (!(requiredRoles instanceof Array) || requiredRoles.length === 0) {
-      console.log('no roles');
       return true;
     }
-
-    console.log('some'); 
+    
     // Allow the user to proceed if all the required roles are present.
     return requiredRoles.some((role) => this.roles.includes(role));
   }

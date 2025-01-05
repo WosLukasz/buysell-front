@@ -1,7 +1,6 @@
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
-import { from, map, Observable, of } from 'rxjs';
-import { Attachment } from 'app/model/auctions.model';
+import { Attachment } from 'app/model/attachments.model';
 
 // minio bucket read only for anonymous access.
 @Injectable({

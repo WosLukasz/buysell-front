@@ -1,0 +1,11 @@
+<div *ngIf="!hideButtons">
+    <div *ngIf="!isFavourite">
+        <button class="btn not-favourite" (click)="addToFavourites()"><i class="fa fa-heart-o"></i></button>
+    </div>
+    
+    <div *ngIf="isFavourite">
+        <button class="btn favourite" (click)="removeFromFavourites()"><i class="fa fa-heart"></i></button>
+    </div>
+</div>
+
+

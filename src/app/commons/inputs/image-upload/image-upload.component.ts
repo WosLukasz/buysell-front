@@ -1,5 +1,5 @@
 import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
-import { Attachment, AttachmentSaveRequest } from 'app/model/auctions.model';
+import { Attachment, AttachmentSaveRequest } from 'app/model/attachments.model';
 import { AttachmentsService } from 'app/services/common/attachments.service';
 import { FilesClientService } from 'app/services/minio/files-client.service';
 

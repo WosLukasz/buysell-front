@@ -5,5 +5,6 @@ export const  AppConstants = {
     USERTS_API_URL : "/users",
     AUCTIONS_API_URL : "/auctions",
     AUCTIONS_SEARCH_API_URL : "/auctions-search",
+    AUCTIONS_FAVOURITES_API_URL : "/auctions-favourites",
     ATTACHEMNTS_API_URL : "/attachments",
 }

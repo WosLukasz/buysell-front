@@ -15,6 +15,8 @@ import { AmountInputComponent } from './inputs/amount-input/amount-input.compone
 import { NumberFormatDirective } from './inputs/number-format.directive';
 import { ImageUploadComponent } from './inputs/image-upload/image-upload.component';
 import { CurrencyPipe } from './pipes/currency.pipe';
+import { FormButtonsComponent } from './form-buttons/form-buttons.component';
+
 
 
 @NgModule({
@@ -30,6 +32,7 @@ import { CurrencyPipe } from './pipes/currency.pipe';
     NumberFormatDirective,
     ImageUploadComponent,
     CurrencyPipe,
+    FormButtonsComponent,
   ],
   imports: [
     CommonModule,
@@ -49,6 +52,7 @@ import { CurrencyPipe } from './pipes/currency.pipe';
     TextAreaInputComponent,
     ImageUploadComponent,
     CurrencyPipe,
+    FormButtonsComponent,
   ]
 })
 export class CommonsModule { }

@@ -1,0 +1,20 @@
+@import '../../../../styles/styles.scss'; 
+
+.btn {
+    border: none;
+    font-weight: bold;
+    font-size: 16px;
+    cursor: pointer;
+  }
+
+  .not-favourite {
+    color: $font-color;
+  }
+
+  .not-favourite:hover {
+    color: $primary-color;
+  }
+
+  .favourite {
+    color: $primary-color;
+  }

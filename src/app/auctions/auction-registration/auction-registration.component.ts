@@ -1,7 +1,7 @@
 import { Component } from '@angular/core';
 import { FormGroup, FormBuilder} from '@angular/forms';
 import { AuctionsService } from '../auctions.service';
-import { Attachment } from 'app/model/auctions.model';
+import { Attachment } from 'app/model/attachments.model';
 
 
 @Component({
@@ -16,7 +16,6 @@ export class AuctionRegistrationComponent {
   constructor(private fb: FormBuilder, private auctionsService: AuctionsService) {}
 
   ngOnInit() {
-    console.log('AuctionRegistrationComponent.ngOnInit');
     this.buildForm();
   }
 
@@ -25,7 +24,6 @@ export class AuctionRegistrationComponent {
   }
 
   imagesUpdated(images: Attachment[]): void {
-    console.log('imagesUpdated', images);
     this.images = images;
   }
 
@@ -37,16 +35,12 @@ export class AuctionRegistrationComponent {
   save(): void {
     this.auctionForm.updateValueAndValidity();
     if(!this.auctionForm.valid) {
-      console.log('NOT VALID !');
       return;
     }
 
     const request = this.auctionsService.convertToAcutionCreationRequest(this.auctionForm.value, this.images);
-    console.log('save: ', request);
-
 
     this.auctionsService.createAuction(request).subscribe((auction) => {
-      console.log('saved auction', auction);
       this.auctionsService.openAuctionView(auction.signature);
     })
   }

@@ -1,0 +1,10 @@
+<div class="buttons-line">
+    <button *ngIf="linkLabel" type="button" class="btn btn-link" (click)="linkCallback.emit()">{{linkLabel}}</button>
+
+    <button *ngIf="secondaryLabel" type="button" class="btn btn-outline-primary" (click)="secondaryCallback.emit()">{{secondaryLabel}}</button>
+
+    <button *ngIf="primaryLabel" type="button" class="btn btn-primary" (click)="primaryCallback.emit()">{{primaryLabel}}</button>
+</div>
+
+
+

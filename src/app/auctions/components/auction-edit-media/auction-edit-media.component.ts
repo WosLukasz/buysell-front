@@ -1,5 +1,5 @@
 import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
-import { Attachment, AttachmentSaveRequest } from 'app/model/auctions.model';
+import { Attachment } from 'app/model/attachments.model';
 
 export const IMAGES_AMOUNT = 6;
 
@@ -37,7 +37,6 @@ export class AuctionEditMediaComponent implements OnInit {
   onImageUploaded(attachment: Attachment, imageSpace: Attachment): void {
     attachment.main = imageSpace.main;
     attachment.order = imageSpace.order;
-    console.log('added attachment', attachment);
     const index = this.imagesSpaces.findIndex((item) => imageSpace.order === item.order);
     this.imagesSpaces[index] = attachment; 
     this.imagesUpdated.emit(this.imagesSpaces);

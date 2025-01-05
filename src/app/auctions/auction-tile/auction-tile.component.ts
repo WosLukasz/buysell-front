@@ -1,7 +1,8 @@
 import { Component, Input, OnInit } from '@angular/core';
-import { Attachment, Auction } from 'app/model/auctions.model';
+import { Auction } from 'app/model/auctions.model';
 import { FilesClientService } from 'app/services/minio/files-client.service';
 import { AuctionsService } from '../auctions.service';
+import { Attachment } from 'app/model/attachments.model';
 
 @Component({
   selector: 'app-auction-tile',

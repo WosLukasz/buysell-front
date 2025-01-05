@@ -1,10 +1,11 @@
 import { Injectable } from '@angular/core';
 import { HttpClient, HttpRequest, HttpEvent } from '@angular/common/http';
 import { Observable } from 'rxjs';
-import { Attachment, Auction, AuctionCreationRequest, ContactInformation, AttachmentSaveRequest } from '../model/auctions.model';
+import { Auction, AuctionCreationRequest, ContactInformation, UserFavourites } from '../model/auctions.model';
 import { environment } from 'environments/environment';
 import { AppConstants } from '../constants/app.constants';
 import { Router } from '@angular/router';
+import { Attachment } from 'app/model/attachments.model';
 
 @Injectable({
   providedIn: 'root'
@@ -25,9 +26,15 @@ export class AuctionsService {
     return this.http.post<Auction>(environment.serviceUrl + AppConstants.AUCTIONS_API_URL, request); 
   }
 
-  convertToAcutionCreationRequest(formValuses: any, images: Attachment[]): AuctionCreationRequest {
-    console.log('formValuses', formValuses);
+  getAuctionViews(signature: string): Observable<number> {
+    return this.http.get<number>(environment.serviceUrl + AppConstants.AUCTIONS_API_URL + '/' + signature + '/views');
+  } 
 
+  incrementView(signature: string): Observable<number> {
+    return this.http.put<number>(environment.serviceUrl + AppConstants.AUCTIONS_API_URL + '/' + signature+ '/views/increment', { observe: 'response',withCredentials: true });
+  } 
+
+  convertToAcutionCreationRequest(formValuses: any, images: Attachment[]): AuctionCreationRequest {
     const phone = this.prepareContactInformation(formValuses.phone, 'PHONE');
     const email = this.prepareContactInformation(formValuses.email, 'EMAIL');
     const price = {

@@ -1,1 +1,41 @@
-<p>auction-view works!</p>
+<div *ngIf="!!auction" class="row">
+    <div class="col-md-8">
+        <app-card>
+            <div class="main-carousel">
+                <ngb-carousel [showNavigationIndicators]="false" class="carousel">
+                    <ng-template ngbSlide *ngFor="let attachment of attachmentsToDisplay">
+                        <img class="carousel-image" [src]="prepareAttachmentImageUrl(attachment)" alt="Random first slide"/>
+                    </ng-template>
+                </ngb-carousel>
+            </div>
+        </app-card>
+        <app-card [title]="'common.description' | translate">
+            {{auction?.description }} 
+            <div class="row">
+                <label class="col-md-4">{{auction.signature}}</label>
+                <label class="col-md-4">{{auction.signature}}</label>
+                <label class="col-md-4">{{auction.signature}}</label>
+            </div>
+        </app-card>
+    </div>
+    <div class="col-md-4">
+        <app-card>
+            <div class="row display-flex">
+                <div class="col-md-10">
+                    <label>{{'common.creationDate' | translate}} : {{auction.creationDate | date:'shortDate'}}</label>
+                </div>
+                <div class="col-md-2">
+                    <app-auction-favourites-button [auctionSignature]="auction.signature"></app-auction-favourites-button>
+                </div>
+            </div>
+            
+            <h3>{{auction.title}}</h3>
+            <h4>{{auction.price | appCurrency}}</h4>
+        </app-card>
+        <app-card>
+            <h4>{{auction.seller?.firstname + ' ' + auction.seller?.name}}</h4>
+            <!-- <h4>{{}}</h4> -->
+        </app-card>
+    </div>
+
+</div>

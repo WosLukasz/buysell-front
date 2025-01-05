@@ -1,12 +1,13 @@
-<div *ngIf="!currentFile" class="row">
-    <div class="col-md-12">
-      <label class="btn btn-default p-0">
+<div *ngIf="!currentFile">
+    <div class="file-upload">
+      <label class="custom-file-upload">
         <input type="file" accept="image/*" (change)="selectFile($event)" />
+        +
       </label>
     </div>
 </div>
   
-<div *ngIf="!!currentFile">
+<div *ngIf="!!currentFile" class="file-upload-preview">
   <img [src]="previewUrl" class="preview" />
   <div>
     <button class="btn btn-success btn-sm float-right" [disabled]="!selectedFiles" (click)="remove()">

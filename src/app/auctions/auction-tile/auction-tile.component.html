@@ -1,28 +1,31 @@
-<div class="row auction-tile">
-    <div class="col-md-4">
-        <ngb-carousel [showNavigationIndicators]="false" class="carousel">
-            <ng-template ngbSlide> 
-                <img class="carousel-image" [src]="imageUrl" alt="Random first slide"/>
-            </ng-template>
-            <ng-template ngbSlide *ngFor="let attachment of attachmentsToDisplay">
-                <img class="carousel-image" [src]="prepareAttachmentImageUrl(attachment)" alt="Random first slide"/>
-            </ng-template>
-        </ngb-carousel>
-    </div>
-    <div class="col-md-8" (click)="openAuctionView()">
-        <div class="row">
-            <div class="col-md-6">
-                <div class="h3">
-                    {{auction?.title}}
+<app-card>
+    <div class="row auction-tile">
+        <div class="col-md-4 acution-tile__images">
+            <ngb-carousel [showNavigationIndicators]="false" [interval]="0" class="carousel">
+                <ng-template ngbSlide> 
+                    <img class="carousel-image" [src]="imageUrl" alt="Random first slide"/>
+                </ng-template>
+                <ng-template ngbSlide *ngFor="let attachment of attachmentsToDisplay">
+                    <img class="carousel-image" [src]="prepareAttachmentImageUrl(attachment)" alt="Random first slide"/>
+                </ng-template>
+            </ngb-carousel>
+        </div>
+        <div class="col-md-8 clickable" (click)="openAuctionView()">
+            <div class="row">
+                <div class="col-md-9">
+                    <div class="h3">
+                        {{auction?.title}}
+                    </div>
+                    <div>
+                        {{auction?.seller?.location}}
+                    </div>
                 </div>
-                <div>
-                    {{auction?.seller?.location}}
+                <div class="col-md-3 text-right">
+                        {{auction?.price | appCurrency}} 
                 </div>
-            </div>
-            <div class="col-md-3">
-                    {{auction?.price | appCurrency}} 
             </div>
         </div>
     </div>
     
-</div>
+</app-card>
+

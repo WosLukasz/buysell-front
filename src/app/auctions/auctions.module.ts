@@ -17,6 +17,7 @@ import { AuctionEditComponent } from './auction-edit/auction-edit.component';
 import { AuctionsSearchFiltersComponent } from './auctions-search-filters/auctions-search-filters.component';
 import { AppRoutingModule } from '../app-routing.module';
 import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
+import { AuctionFavouritesButtonComponent } from './components/auction-favourites-button/auction-favourites-button.component';
 
 @NgModule({
   declarations: [
@@ -30,7 +31,8 @@ import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
     AuctionTileComponent,
     AuctionViewComponent,
     AuctionEditComponent,
-    AuctionsSearchFiltersComponent
+    AuctionsSearchFiltersComponent,
+    AuctionFavouritesButtonComponent
   ],
   imports: [
     CommonModule,

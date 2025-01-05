@@ -1,3 +1,6 @@
+import { Attachment } from "./attachments.model";
+import { Amount } from "./common.model";
+
 export interface Auction {
     signature: string;
 
@@ -22,6 +25,8 @@ export interface Auction {
     ownerId: string;
 
     finishReason: string;
+
+    creationDate: Date;
 }
 
 export interface AuctionCreationRequest {
@@ -55,32 +60,12 @@ export interface ContactInformation {
     value: string;
 }
 
-export interface Amount {
-    currency: string;
-    value: number;
-}
-
-export interface AttachmentWithContent extends Attachment {
-    content?: File;
-    context?: string;
-}
-
-export interface AttachmentSaveRequest extends Attachment {
-    content?: File;
-    context?: string;
-}
-
-export interface Attachment {
-    id?: string;
-    path?: string;
-    originalFilename?: string;
-    contentType?: string;
-    main?: boolean;
-    order?: number;
-}
-
-
 export interface AuctionsSearchResponse {
     auctions: Auction[];
     total: number;
+}
+
+
+export interface UserFavourites {
+    auctions: string[];
 }

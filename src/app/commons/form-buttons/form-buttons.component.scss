@@ -1,0 +1,8 @@
+@import '../../../styles/styles.scss'; 
+
+.buttons-line {
+    display: flex;
+    justify-content: flex-end;
+    margin-top: $standard-padding-x2;
+    margin-bottom: $standard-padding-x2;
+}

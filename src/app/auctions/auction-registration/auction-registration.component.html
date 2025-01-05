@@ -10,8 +10,11 @@
 
     <app-auction-edit-seller-data></app-auction-edit-seller-data>
 
-    <button cButton (click)="cancel()">Cancel</button>
-
-    <button cButton (click)="save()">Save</button>
+    <app-form-buttons 
+        [primaryLabel]="'common.save' | translate"
+        [linkLabel]="'common.cancel' | translate"
+        (primaryCallback)="save()"
+        (linkCallback)="cancel()">
+    </app-form-buttons>
 
 </form>
