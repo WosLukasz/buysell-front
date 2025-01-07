@@ -1,0 +1,26 @@
+<div class="row">
+    <div class="col-md-12">
+        <div *ngFor="let level of selectedLevels; let first = first;">
+            <span *ngIf="!first"> > </span>
+            <strong (click)="openLevel(level)">{{level.code}}</strong>
+        </div>
+    </div>
+</div>
+
+<div class="row">
+    <div class="col-md-12">
+        <div *ngIf="canSelectGroup">
+            <span (click)="onSelectGroup(currentLevel)">All in {{currentLevel?.code}}</span>
+            <app-line-separator></app-line-separator>
+        </div>
+        <div *ngFor="let child of currentLevelChildren; let last = last;">
+            <span (click)="onSelect(child)">{{child.code}}</span>
+            <app-line-separator *ngIf="!last"></app-line-separator>
+        </div>
+    </div>
+</div>
+
+<div>
+    <span>Selected: </span>
+    <span>{{selectedCategory?.code}}</span>
+</div>

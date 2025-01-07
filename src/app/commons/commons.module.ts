@@ -4,7 +4,6 @@ import { BrowserModule } from '@angular/platform-browser';
 import { FormsModule, ReactiveFormsModule } from "@angular/forms";
 import { HeaderComponent } from './header/header.component';
 import { ContactComponent } from './contact/contact.component';
-import { DashboardComponent } from './dashboard/dashboard.component';
 import { AppRoutingModule } from './../app-routing.module';
 import { AppCardComponent } from './layout/app-card/app-card.component'; 
 import { TranslateModule } from "@ngx-translate/core";
@@ -16,14 +15,13 @@ import { NumberFormatDirective } from './inputs/number-format.directive';
 import { ImageUploadComponent } from './inputs/image-upload/image-upload.component';
 import { CurrencyPipe } from './pipes/currency.pipe';
 import { FormButtonsComponent } from './form-buttons/form-buttons.component';
-
-
+import { LineSeparatorComponent } from './layout/line-separator/line-separator.component';
+import { ViewHeaderComponent } from './layout/view-header/view-header.component';
 
 @NgModule({
   declarations: [
     HeaderComponent,
     ContactComponent,
-    DashboardComponent,
     AppCardComponent,
     TextInputComponent,
     TextAreaInputComponent,
@@ -33,6 +31,8 @@ import { FormButtonsComponent } from './form-buttons/form-buttons.component';
     ImageUploadComponent,
     CurrencyPipe,
     FormButtonsComponent,
+    LineSeparatorComponent,
+    ViewHeaderComponent,
   ],
   imports: [
     CommonModule,
@@ -45,7 +45,6 @@ import { FormButtonsComponent } from './form-buttons/form-buttons.component';
   exports: [
     HeaderComponent,
     ContactComponent,
-    DashboardComponent,
     AppCardComponent, 
     TextInputComponent,
     AmountInputComponent,
@@ -53,6 +52,8 @@ import { FormButtonsComponent } from './form-buttons/form-buttons.component';
     ImageUploadComponent,
     CurrencyPipe,
     FormButtonsComponent,
+    LineSeparatorComponent,
+    ViewHeaderComponent,
   ]
 })
 export class CommonsModule { }

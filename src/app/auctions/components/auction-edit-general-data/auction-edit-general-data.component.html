@@ -10,11 +10,13 @@
     </app-amount-input>
 
 
-    <app-text-input 
-        [formControl]="category" 
-        [label]="'common.category'">
-    </app-text-input>
-
+    <div *ngIf="category.value">
+        <span>{{'common.selectedCategory' | translate}}</span>
+        <span>{{category.value}}</span>
+    </div>
+    <div>
+        <button type="button" class="btn btn-link" (click)="chooseCategory()">{{'common.category.choose'}}</button>
+    </div>
 
     <app-text-area-input
         [formControl]="description" 

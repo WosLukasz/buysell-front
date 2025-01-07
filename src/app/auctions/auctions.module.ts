@@ -18,6 +18,9 @@ import { AuctionsSearchFiltersComponent } from './auctions-search-filters/auctio
 import { AppRoutingModule } from '../app-routing.module';
 import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 import { AuctionFavouritesButtonComponent } from './components/auction-favourites-button/auction-favourites-button.component';
+import { CategoryPickerComponent } from './components/category-picker/category-picker.component';
+import { CategoryPickerDialogComponent } from './components/category-picker-dialog/category-picker-dialog.component';
+import { MatDialogModule } from '@angular/material/dialog';
 
 @NgModule({
   declarations: [
@@ -32,7 +35,9 @@ import { AuctionFavouritesButtonComponent } from './components/auction-favourite
     AuctionViewComponent,
     AuctionEditComponent,
     AuctionsSearchFiltersComponent,
-    AuctionFavouritesButtonComponent
+    AuctionFavouritesButtonComponent,
+    CategoryPickerComponent,
+    CategoryPickerDialogComponent
   ],
   imports: [
     CommonModule,
@@ -43,6 +48,7 @@ import { AuctionFavouritesButtonComponent } from './components/auction-favourite
     ReactiveFormsModule,
     TranslateModule,
     AppRoutingModule,
+    MatDialogModule,
   ],
   exports: [AuctionsSearchComponent]
 })

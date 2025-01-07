@@ -14,6 +14,8 @@ import { StaticTranslationLoader } from './static-translations-loader';
 import { ViewsModule } from './views/views.module';
 import { NgbModule } from '@ng-bootstrap/ng-bootstrap'; // https://ng-bootstrap.github.io/#/components/accordion/overview
 import { HttpXsrfInterceptor } from './interceptors/HttpXsrfInterceptor.service';
+import { UserDashboardModule } from './user-dashboard/user-dashboard.module';
+import { MatDialogModule } from '@angular/material/dialog';
 
 @NgModule({ 
     declarations: [
@@ -21,7 +23,7 @@ import { HttpXsrfInterceptor } from './interceptors/HttpXsrfInterceptor.service'
     ],
     bootstrap: [AppComponent], 
     imports: [
-        BrowserModule,
+        BrowserModule, 
         NgbModule,
         AppRoutingModule,
         FormsModule,
@@ -29,6 +31,8 @@ import { HttpXsrfInterceptor } from './interceptors/HttpXsrfInterceptor.service'
         AuctionsModule,
         CommonsModule,
         ViewsModule,
+        UserDashboardModule,
+        MatDialogModule,
         TranslateModule.forRoot({
             loader: {
                 provide: TranslateLoader,

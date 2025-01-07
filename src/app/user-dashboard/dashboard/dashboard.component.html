@@ -1,0 +1,20 @@
+<div class="container">
+    <div class="row">
+        <div class="col-md-12">
+            <h1>Hi <span class="text-dark">{{currentUser?.firstName + ' ' + currentUser?.name}}</span>, Welcome back</h1>
+            <p>{{currentUser?.id}}</p>
+        </div>
+    </div>
+
+    <app-card>
+        <div *ngFor="let option of menuOptions; let last = last;" class="clickable"> 
+            <div class="row">
+                <div class="col-md-12">
+                    <div class="menu-option" (click)="navigateToOtherView(option.link)">{{option.label | translate}}</div>
+                    <app-line-separator *ngIf="!last"></app-line-separator>
+                </div>
+            </div>
+        </div>
+    </app-card>
+</div>
+

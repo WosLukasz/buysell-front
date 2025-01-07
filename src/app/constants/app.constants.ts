@@ -7,4 +7,5 @@ export const  AppConstants = {
     AUCTIONS_SEARCH_API_URL : "/auctions-search",
     AUCTIONS_FAVOURITES_API_URL : "/auctions-favourites",
     ATTACHEMNTS_API_URL : "/attachments",
+    CATEGORIES_API_URL : "/categories",
 }

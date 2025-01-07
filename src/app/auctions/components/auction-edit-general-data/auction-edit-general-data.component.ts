@@ -1,5 +1,7 @@
 import { Component } from '@angular/core';
 import { FormGroup, FormBuilder, FormGroupDirective, Validators, ValidatorFn, ValidationErrors, AbstractControl, FormControl} from '@angular/forms';
+import { AuctionsService } from 'app/auctions/auctions.service';
+import { Category } from 'app/model/auctions.model';
 
 @Component({
   selector: 'auction-edit-general-data',
@@ -9,7 +11,8 @@ export class AuctionEditGeneralDataComponent {
   auctionForm: FormGroup;
 
   constructor(private fgd: FormGroupDirective,
-    private fb: FormBuilder
+    private fb: FormBuilder,
+    private auctionsService: AuctionsService
   ) {
 
   }
@@ -40,6 +43,13 @@ export class AuctionEditGeneralDataComponent {
     this.auctionForm.addControl('category', this.fb.control('', [Validators.required]));
     this.auctionForm.addControl('description', this.fb.control('', [Validators.required, Validators.minLength(15)]));
     this.auctionForm.addControl('price', this.fb.control('', [Validators.required, Validators.min(0)]));
+  }
+
+  chooseCategory(): void {
+    this.auctionsService.chooseCategory().subscribe((result) => {
+      const category = result as unknown as Category;
+      this.category.patchValue(category.code);
+    });
   }
 
   // forbiddenNameValidator = (): ValidatorFn => {

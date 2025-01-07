@@ -69,3 +69,13 @@ export interface AuctionsSearchResponse {
 export interface UserFavourites {
     auctions: string[];
 }
+
+export interface CategoryRestModel {
+    id: string;
+    parentId: string;
+    code: string;
+}
+
+export interface Category extends CategoryRestModel {
+
+}
