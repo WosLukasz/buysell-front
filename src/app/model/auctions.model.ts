@@ -79,3 +79,12 @@ export interface CategoryRestModel {
 export interface Category extends CategoryRestModel {
 
 }
+
+export interface AuctionsSearchRequest {
+    text?: string;
+    category?: string;
+    offset?: number;
+    pageSize?: number;
+    sortBy?: string;
+    sortOrder?: string;
+}
