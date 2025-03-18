@@ -1,7 +1,7 @@
 import { Attachment } from "./attachments.model";
-import { Amount } from "./common.model";
+import { Amount, DatabaseObject } from "./common.model";
 
-export interface Auction {
+export interface Auction extends DatabaseObject {
     signature: string;
 
     title: string;
@@ -14,9 +14,9 @@ export interface Auction {
 
     status: string;
 
-    statusChangeDate: Date;
+    toCheckManually: boolean;
 
-    endDate: Date;
+    statusChangeDate: Date;
 
     attachments: Attachment[];
 
@@ -26,7 +26,13 @@ export interface Auction {
 
     finishReason: string;
 
-    creationDate: Date;
+    startDate: Date;
+
+    lastRefreshmentDate: Date;
+
+    expiryDate: Date;
+
+    endDate: Date;
 }
 
 export interface AuctionCreationRequest {
@@ -44,7 +50,7 @@ export interface AuctionCreationRequest {
     seller?: SellerProfile;
 }
 
-export interface SellerProfile {
+export interface SellerProfile extends DatabaseObject {
     
     firstname: string;
 
@@ -52,10 +58,12 @@ export interface SellerProfile {
 
     location: string;
 
+    ownerId?: string;
+
     contactInformation: ContactInformation[];
 }
 
-export interface ContactInformation {
+export interface ContactInformation extends DatabaseObject {
     type: string;
     value: string;
 }
@@ -65,14 +73,12 @@ export interface AuctionsSearchResponse {
     total: number;
 }
 
-
 export interface UserFavourites {
     auctions: string[];
 }
 
-export interface CategoryRestModel {
-    id: string;
-    parentId: string;
+export interface CategoryRestModel extends DatabaseObject {
+    parentId: number;
     code: string;
 }
 

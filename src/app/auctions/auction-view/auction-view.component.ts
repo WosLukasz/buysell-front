@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { AuctionsService } from '../auctions.service';
-import { Auction } from 'app/model/auctions.model';
+import { Auction, SellerProfile } from 'app/model/auctions.model';
 import { ActivatedRoute } from '@angular/router';
 import { FilesClientService } from 'app/services/minio/files-client.service';
 import { forkJoin } from 'rxjs';
@@ -17,6 +17,8 @@ export class AuctionViewComponent implements OnInit {
 
   auction: Auction;
 
+  sellerProfile: SellerProfile;
+
   attachmentsToDisplay: Attachment[];
 
   views: number;
@@ -28,9 +30,11 @@ export class AuctionViewComponent implements OnInit {
 
     forkJoin({
       auction: this.auctionService.get(this.signature), 
+      seller: this.auctionService.getSellerProfile(this.signature),
       views: this.auctionService.incrementView(this.signature)})
     .subscribe((response) => {
       this.auction = response.auction;
+      this.sellerProfile = response.seller;
       this.views = response.views;
       this.prepareAttachmentsToDisplay();
     })
@@ -38,7 +42,7 @@ export class AuctionViewComponent implements OnInit {
 
   private prepareAttachmentsToDisplay() {
     this.attachmentsToDisplay = this.auction?.attachments
-      .filter((attachment) => !!attachment.id)
+      .filter((attachment) => !!attachment.etag)
       .sort((a, b) => a.order - b.order);
   }
 

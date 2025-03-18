@@ -1,7 +1,7 @@
 import { Injectable } from '@angular/core';
 import { HttpClient, HttpRequest, HttpEvent } from '@angular/common/http';
 import { Observable } from 'rxjs';
-import { Auction, AuctionCreationRequest, Category, CategoryRestModel, ContactInformation } from '../model/auctions.model';
+import { Auction, AuctionCreationRequest, Category, CategoryRestModel, ContactInformation, SellerProfile } from '../model/auctions.model';
 import { environment } from 'environments/environment';
 import { AppConstants } from '../constants/app.constants';
 import { Router } from '@angular/router';
@@ -18,6 +18,10 @@ export class AuctionsService {
 
   get(signature: string): Observable<Auction> {
     return this.http.get<Auction>(environment.serviceUrl + AppConstants.AUCTIONS_API_URL + '/' + signature);
+  } 
+
+  getSellerProfile(signature: string): Observable<SellerProfile> {
+    return this.http.get<SellerProfile>(environment.serviceUrl + AppConstants.AUCTIONS_API_URL + '/' + signature + '/vendor');
   } 
 
   openAuctionView(signature: string): void {

@@ -12,7 +12,7 @@ export interface AuthProfile {
 }
 
 export interface User {
-  id?: number;
+  id?: string;
   firstName?: string;
   name?: string;
   mobileNumber?: string;

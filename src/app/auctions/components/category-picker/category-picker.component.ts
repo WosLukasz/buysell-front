@@ -64,7 +64,7 @@ export class CategoryPickerComponent implements OnInit {
     return this.categories.find((category) => category.code === code);
   }
 
-  findCategoryById(id: string): Category {
+  findCategoryById(id: number): Category {
     return this.categories.find((category) => category.id === id);
   }
 

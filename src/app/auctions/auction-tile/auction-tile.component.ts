@@ -22,7 +22,7 @@ export class AuctionTileComponent implements OnInit {
   ngOnInit(): void {
     this.imageUrl = FilesClientService.getMainImageUrl(this.auction.attachments);
     this.attachmentsToDisplay = this.auction?.attachments
-                                  .filter((attachment) => !!attachment.id && !attachment.main)
+                                  .filter((attachment) => !!attachment.etag && !attachment.main)
                                   .sort((a, b) => a.order - b.order);
 
   }
