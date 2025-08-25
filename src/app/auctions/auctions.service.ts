@@ -17,7 +17,7 @@ export class AuctionsService {
   constructor(private http: HttpClient, private router: Router, private dialog: MatDialog) {}
 
   get(signature: string): Observable<Auction> {
-    return this.http.get<Auction>(environment.serviceUrl + AppConstants.AUCTIONS_API_URL + '/' + signature);
+    return this.http.get<Auction>(environment.serviceUrl + AppConstants.AUCTIONS_PUBLIC_API_URL + '/' + signature);
   } 
 
   openAuctionView(signature: string): void {
@@ -29,11 +29,11 @@ export class AuctionsService {
   }
 
   getAuctionViews(signature: string): Observable<number> {
-    return this.http.get<number>(environment.serviceUrl + AppConstants.AUCTIONS_API_URL + '/' + signature + '/views');
+    return this.http.get<number>(environment.serviceUrl + AppConstants.AUCTIONS_PUBLIC_API_URL + '/' + signature + '/views');
   } 
 
   incrementView(signature: string): Observable<number> {
-    return this.http.put<number>(environment.serviceUrl + AppConstants.AUCTIONS_API_URL + '/' + signature+ '/views/increment', { observe: 'response',withCredentials: true });
+    return this.http.put<number>(environment.serviceUrl + AppConstants.AUCTIONS_PUBLIC_API_URL + '/' + signature+ '/views/increment', { observe: 'response',withCredentials: true });
   } 
 
   getCategories(): Observable<CategoryRestModel[]> {
