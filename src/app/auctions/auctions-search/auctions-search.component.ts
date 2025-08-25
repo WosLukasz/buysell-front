@@ -19,7 +19,7 @@ export class AuctionsSearchComponent implements OnInit {
   ngOnInit(): void {
     const searchRequest = { 
       priceFrom: 0, 
-      priceTo: 30000,
+      priceTo: 300000000,
       // text: 'quad',
       offset: 0,
       pageSize: 4,

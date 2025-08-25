@@ -14,7 +14,7 @@ export class DashboardService {
 
 
   getDashboardInfo() : Observable<string[]>{
-    return this.http.get<string[]>(environment.serviceUrl + AppConstants.USERTS_API_URL, { withCredentials: true });
+    return this.http.get<string[]>(environment.serviceUrl + AppConstants.USERTS_API_URL + '/current', { withCredentials: true });
   }
 
   getAccountDetails(email: String){

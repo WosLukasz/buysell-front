@@ -48,17 +48,17 @@ import { MatDialogModule } from '@angular/material/dialog';
             deps: [KeycloakService, KeycloakInitializerService],
         },
         provideHttpClient(
-            withInterceptorsFromDi(), 
+            withInterceptorsFromDi(),  
             withXsrfConfiguration({ 
             cookieName: 'XSRF-TOKEN',
             headerName: 'X-XSRF-TOKEN', 
-        }))
-        // {
-        //     provide: HTTP_INTERCEPTORS,
-        //     useClass: HttpXsrfInterceptor,
-        //     deps: [HttpXsrfTokenExtractor],
-        //     multi: true
-        // }
+        })),
+        {
+            provide: HTTP_INTERCEPTORS,
+            useClass: HttpXsrfInterceptor,
+            deps: [HttpXsrfTokenExtractor],
+            multi: true 
+        }
     ] 
 })
 export class AppModule {

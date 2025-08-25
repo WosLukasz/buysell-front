@@ -9,7 +9,7 @@ export interface AttachmentSaveRequest extends Attachment {
 }
 
 export interface Attachment {
-    id?: string;
+    etag?: string;
     path?: string;
     originalFilename?: string;
     contentType?: string;

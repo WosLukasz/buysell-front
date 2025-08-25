@@ -38,7 +38,7 @@ export class AuctionViewComponent implements OnInit {
 
   private prepareAttachmentsToDisplay() {
     this.attachmentsToDisplay = this.auction?.attachments
-      .filter((attachment) => !!attachment.id)
+      .filter((attachment) => !!attachment.etag)
       .sort((a, b) => a.order - b.order);
   }
 

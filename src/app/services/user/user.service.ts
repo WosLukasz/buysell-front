@@ -29,7 +29,7 @@ export class UserService {
   }
 
   getCurrentUserDetails(): Observable<User> {
-    return this.http.get<User>(environment.serviceUrl + AppConstants.USERTS_API_URL, { withCredentials: true });
+    return this.http.get<User>(environment.serviceUrl + AppConstants.USERTS_API_URL + '/current', { withCredentials: true });
   }
 
 }
